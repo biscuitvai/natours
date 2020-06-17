@@ -11,6 +11,19 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95%);
     position: relative;
 
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),(min-width: 125em) {
+        background:
+        linear-gradient(to right bottom,
+            rgba($color-secondary-light, 0.8),
+            rgba($color-secondary-dark, 0.8)),
+        url(../images/bg.jpg);
+
+    }
+
+    @include respond(tab-port){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95%);
+    }
     &__logo-box {
         position: absolute;
         top: 2rem;
@@ -27,5 +40,12 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+
+        @include respond(tab-port){
+            height: 50vh;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 }

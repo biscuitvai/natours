@@ -2,8 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    color: $color-gray-dark;
-    padding: 3rem;
+    color: $color-grey-dark;
     box-sizing: border-box;
 }
 
@@ -12,6 +11,11 @@ body {
     text-transform: uppercase;
     margin-bottom: 6rem;
     backface-visibility: hidden;
+
+    @include respond(tab-port) {
+        margin-bottom: 2rem;
+        margin-top: 6rem;
+    }
 
     &--main {
         display: block;
@@ -22,9 +26,14 @@ body {
         animation-name: moveInLeft;
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
+
         /*   animation-iteration-count: 3;
-            animation-delay: 1s;
+            animation-delay: 3s;
        */
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 4rem;
+        }
     }
 
     &--sub {
@@ -36,35 +45,50 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-size: 1.5rem;
+        }
     }
 }
 
-.heading-secondary{
+.heading-secondary {
     font-size: 3.5rem;
     font-weight: 700;
     text-transform: uppercase;
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    display:inline-block;
+    display: inline-block;
     -webkit-background-clip: text;
     background-clip: text;
-    color:transparent;
+    color: transparent;
     letter-spacing: 2px;
-    transition: all .2s;
+    transition: all .3s; // .2s
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(3deg) skewX(12deg) scale(1.1);
-        text-shadow: .5rem 1rem 2rem rgba($color-black,.2);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
 }
 
-.headin-tertiary{
+.headin-tertiary {
     font-size: $default-font-size;
     text-transform: uppercase;
     font-weight: 700;
 }
-.paragraph{
+
+.paragraph {
     font-size: $default-font-size;
-    &:not(:last-child){
+
+    &:not(:last-child) {
         margin-bottom: 3rem;
     }
 }
